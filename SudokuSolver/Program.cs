@@ -3,6 +3,7 @@
 
     internal class Program
     {
+        //Checks 3x3 area of diagram
         static bool Check3x3(string[,] data, int row, int column, int toCheck)
         {
             string checking = Convert.ToString(toCheck);
@@ -35,6 +36,7 @@
             return true;
         }
 
+        //Checks Row of diagram
         static bool CheckRow(string[,] data, int row,int toCheck)
         {
             string checking = Convert.ToString(toCheck);
@@ -46,6 +48,7 @@
             return true;
         }
 
+        //Checks Column of Diagram
         static bool CheckColumn(string[,] data, int column,int toCheck)
         {
             string checking = Convert.ToString(toCheck);
@@ -57,6 +60,7 @@
             return true;
         }
 
+        //Checks if a field is empty
         static bool IsEmpty(string[,] data, int row, int column)
         {
             if (data[row, column] == "X")
@@ -65,6 +69,7 @@
             return false;
         }
 
+        //Main solving function
         static bool Solve(string[,] data)
         {
             string[] forCheck = {"0" ,"1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -91,6 +96,7 @@
             return true;
         }
 
+        //Checks opened file if data in it is correct
         static bool CheckIfCorrect(string[,] data)
         {
             string[] correct = {"1","2","3","4","5","6","7","8","9","X"};
@@ -104,6 +110,7 @@
             return true;
         }
 
+        //Opens file and returns diagram to solve
         static string[,] Open(string path)
         {
             StreamReader sr = new StreamReader(path);
@@ -123,6 +130,7 @@
             return sudoku;
         }
 
+        //Saves file
         static void Save(string[,] data, string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -136,8 +144,10 @@
                 sw.WriteLine();
             }
             sw.Close();
+            Console.WriteLine("Saved!");
         }
 
+        
         static void Main(string[] args)
         {
             try 
